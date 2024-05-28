@@ -4,7 +4,7 @@
     <% @caterers.each do |caterer| %>
 
       <div class='col-4'>
-        <%= link_to '#', class: 'text-decoration-none' do %>
+        <%= link_to caterer_path(caterer), class: 'text-decoration-none' do %>
           <div class="card mb-3">
             <%= caterer.user.first_name %>
           </div>
