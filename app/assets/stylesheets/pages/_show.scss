@@ -1,7 +1,5 @@
 body {
   background-color: $light-green;
-  margin-left: 30px;
-  margin-top: 40px;
   text-align: center;
 }
 
@@ -12,8 +10,9 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 45px;
   padding-bottom: 30px;
+  letter-spacing: 2px;
 }
 
 .container {
@@ -21,22 +20,22 @@ h2 {
 }
 
 .details {
-  text-align: start;
+  text-align: justify;
   line-height: 1.5;
+  font-size: 20px;
 }
-
-
-
 
 .btn-flat {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #670BFF;
+  background: $brown;
   transition: background 0.3s ease;
+  width: 250px;
+  height: 45px;
 }
 
 .btn-flat:hover {
-  background: #4D04C4;
+  background: #682a2a;
   color: white;
 }
