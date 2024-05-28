@@ -1,11 +1,29 @@
-.body {
-
-  background-color: $red;
+body {
+  background-color: $light-green;
+  margin-left: 30px;
+  margin-top: 40px;
+  text-align: center;
 }
 
+h1 {
+  font-size: 60px;
+  padding-bottom: 40px;
+  padding-top: 50px;
+}
 
+h2 {
+  font-size: 40px;
+  padding-bottom: 30px;
+}
 
+.container {
+  max-width: 60%;
+}
 
+.details {
+  text-align: start;
+  line-height: 1.5;
+}
 
 
 

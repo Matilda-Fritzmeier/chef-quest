@@ -1,10 +1,13 @@
-
-<body>
-<h1>Selected Caterer:</h1>
-<h2><%= @caterer.user.first_name %> <%= @caterer.user.last_name %></h2>
-<p><%= @caterer.address %></p>
-<p><%= @caterer.cuisine %></p>
-<p><%= @caterer.description %></p>
-<p><%= @caterer.price_per_hour %></p>
-<p><a class="btn btn-flat" href="#">Book now</a></p>
-</body>
+<div class="container">
+  <div class="body">
+    <h1>YOUR PERFEKT CATERER</h1>
+    <h2><%= @caterer.user.first_name %> <%= @caterer.user.last_name %></h2>
+    <div class="details">
+      <p>Address : <%= @caterer.address %></p>
+      <p>Cuisine : <%= @caterer.cuisine %></p>
+      <p>short description : <%= @caterer.description %></p>
+      <p>Price per hour : <%= @caterer.price_per_hour %></p>
+    </div>
+    <p><a class="btn btn-flat" href="#">Book now</a></p>
+  </div>
+</div>
