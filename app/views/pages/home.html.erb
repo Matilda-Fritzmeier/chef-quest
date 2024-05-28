@@ -1,2 +1,38 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.upmenu.com/wp-content/uploads/2023/10/1-catering-business-names-catering.jpg);">
+  <div class="container">
+    <h1><strong>Chef Quest</strong>  <strong>!</strong></h1>
+    <p>We're here to sort out all your catering worries...</p>
+  </div>
+</div>
+
+<div class="cards container">
+  <div class="row">
+    <div class="col">
+      <a href="<%=new_user_session_path%>">
+        <div class="card-entry">
+          <%= image_tag "chef-removebg-preview.png" %>
+          <div class="card-entry-infos">
+            <div>
+              <%= link_to "I'm a chef!", new_user_session_path %>
+              <p> Let us help you find an event to cater!</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="#">
+        <div class="card-entry">
+          <%= image_tag "cater-removebg-preview.png" %>
+          <div class="card-entry-infos">
+            <div>
+              <%= link_to "I'm planning an event!", "#" %>
+              <p> Let us help you find a caterer!</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
