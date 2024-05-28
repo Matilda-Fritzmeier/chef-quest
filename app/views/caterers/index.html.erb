@@ -1,5 +1,6 @@
-<ul>
+<h1 class="header">List of all the caterers available</h1>
+<ul class="body">
   <% @caterers.each do |caterer| %>
-    <li><%= caterer.name %></li>
+    <li><%= caterer.user.first_name %></li>
   <% end %>
 </ul>

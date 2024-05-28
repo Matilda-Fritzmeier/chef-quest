@@ -1,2 +1,14 @@
 // Import page-specific CSS files here.
 @import "home";
+.body {
+  background-color:white;
+  font-size: 40px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.header {
+  margin-left: 30px;
+  margin-right: 30px;
+  font-size: 60px;
+}
