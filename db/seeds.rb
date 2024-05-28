@@ -2,9 +2,9 @@ require 'faker'
 
 puts "Cleaning database..."
 
+Booking.destroy_all
 User.destroy_all
 Caterer.destroy_all
-Booking.destroy_all
 
 cuisines = ["French", "Italian", "Portuguese", "English"]
 puts "Creating users..."
