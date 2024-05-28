@@ -1,0 +1,41 @@
+body {
+  background-color: $light-green;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  padding-bottom: 40px;
+  padding-top: 50px;
+}
+
+h2 {
+  font-size: 45px;
+  padding-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.container {
+  max-width: 60%;
+}
+
+.details {
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 20px;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $brown;
+  transition: background 0.3s ease;
+  width: 250px;
+  height: 45px;
+}
+
+.btn-flat:hover {
+  background: #682a2a;
+  color: white;
+}

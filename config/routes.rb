@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :caterers, only: [:index]
+  resources :caterers, only: [:index, :show]
 end
