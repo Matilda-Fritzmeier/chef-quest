@@ -5,33 +5,34 @@
   </div>
 </div>
 
-<%# <a class="btn btn-flat" href="#">You're a chef? Let us help you find an event to cater!</a>
-    <a class="btn btn-flat" href="#">Planning an event? Let us help you find a caterer!</a> %>
-
 <div class="cards container">
-  <div class="card-trip">
-    <img src="https://logowik.com/content/uploads/images/chef-restaurant5078.logowik.com.webp" />
-    <div class="card-trip-infos">
-      <div>
-        <%# <a class="btn btn-flat" href="#">I'm a chef</a> %>
-        <%= link_to "I'm a chef!", new_user_session_path %>
-        <p> Let us help you find an event to cater!</p>
-      </div>
-      <%# <h2 class="card-trip-pricing">£99.99</h2> %>
-      <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+  <div class="row">
+    <div class="col">
+      <a href="<%=new_user_session_path%>">
+        <div class="card-entry">
+          <%= image_tag "chef-removebg-preview.png" %>
+          <div class="card-entry-infos">
+            <div>
+              <%= link_to "I'm a chef!", new_user_session_path %>
+              <p> Let us help you find an event to cater!</p>
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-  </div>
 
-  <div class="card-trip">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvWzHJCOS5qsUDqSXrNICDxs2GJ_8pIk7FM6qFHrRKVQ&s" />
-    <div class="card-trip-infos">
-      <div>
-        <%# <a class="btn btn-flat" href="#">I'm planning an event</a> %>
-        <%= link_to "I'm planning an event!", "#" %>
-        <p> Let us help you find a caterer!</p>
-      </div>
-      <%# <h2 class="card-trip-pricing">£99.99</h2> %>
-      <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+    <div class="col">
+      <a href="#">
+        <div class="card-entry">
+          <%= image_tag "cater-removebg-preview.png" %>
+          <div class="card-entry-infos">
+            <div>
+              <%= link_to "I'm planning an event!", "#" %>
+              <p> Let us help you find a caterer!</p>
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
