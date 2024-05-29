@@ -1,7 +1,7 @@
 #caterer {
 
   h1 {
-    font-size: 60px;
+    font-size: 70px;
     padding-bottom: 40px;
     padding-top: 50px;
     text-align: center;
@@ -28,6 +28,13 @@ margin-right: 40px;
   display: flex;
 }
 
+.caterer-img {
+// image-size
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+
+}
+
 .btn-flat {
   color: white;
   padding: 8px 24px;
@@ -36,6 +43,7 @@ margin-right: 40px;
   transition: background 0.3s ease;
   width: 250px;
   height: 45px;
+  margin-top: 20px;
 }
 
 .btn-flat:hover {

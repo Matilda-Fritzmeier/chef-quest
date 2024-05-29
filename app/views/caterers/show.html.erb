@@ -1,5 +1,5 @@
 <div class="container" id='caterer'>
-  <h1>YOUR PERFEKT CATERER <%=@caterer.name %></h1>
+  <h1><%=@caterer.name.upcase %></h1>
   <div class="caterer-position">
     <div class="caterer-details">
       <h2><%= @caterer.user.first_name %> <%= @caterer.user.last_name %></h2>
@@ -11,10 +11,10 @@
         </div>
     </div>
 
-        <div class="caterer-img">
-          <%= cl_image_tag @caterer.photo.key, height: 400, width: 500, crop: :fill %>
+        <div>
+          <%= cl_image_tag @caterer.photo.key, height: 400, width: 500, crop: :fill, class:"caterer-img" %>
         </div>
 
   </div>
-  <p><a class="btn btn-flat" href="#">Book now</a></p>
+  <p><%= link_to  "Book now", new_caterer_booking_path(@caterer), class:"btn btn-flat"%></p>
 </div>
