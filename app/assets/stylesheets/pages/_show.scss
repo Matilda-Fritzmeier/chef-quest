@@ -1,28 +1,31 @@
-body {
-  background-color: $light-green;
-  text-align: center;
+#caterer {
+
+  h1 {
+    font-size: 60px;
+    padding-bottom: 40px;
+    padding-top: 50px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 45px;
+    padding-bottom: 30px;
+    letter-spacing: 2px;
+  }
 }
 
-h1 {
-  font-size: 60px;
-  padding-bottom: 40px;
-  padding-top: 50px;
-}
-
-h2 {
-  font-size: 45px;
-  padding-bottom: 30px;
-  letter-spacing: 2px;
-}
-
-.container {
-  max-width: 60%;
-}
-
-.details {
+.caterer-details {
   text-align: justify;
   line-height: 1.5;
   font-size: 20px;
+  // display: flex;
+}
+
+.caterer-txt {
+margin-right: 40px;
+}
+
+.caterer-position {
+  display: flex;
 }
 
 .btn-flat {
