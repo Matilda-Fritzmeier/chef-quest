@@ -1,12 +1,12 @@
 class CaterersController < ApplicationController
-   def index
+  def index
     @caterers = Caterer.all
   end
 
   def show
     @caterer = Caterer.find(params[:id])
   end
-  
+
   def new
     @caterer = Caterer.new
   end
