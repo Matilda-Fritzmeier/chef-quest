@@ -17,9 +17,9 @@ pari = User.create!(email: "parikaya@mail.com", password: "password", first_name
 users = [any, marie, matilda, pari]
 
 puts "Creating caterers..."
-caterer1 = Caterer.create!(address: Faker::Address.full_address, cuisine: cuisines.sample, description: Faker::Restaurant.description,
+caterer1 = Caterer.create!(name: Faker::Restaurant.name, address: Faker::Address.full_address, cuisine: cuisines.sample, description: Faker::Restaurant.description,
                            price_per_hour: 50, user: any)
-caterer2 = Caterer.create!(address: Faker::Address.full_address, cuisine: cuisines.sample,
+caterer2 = Caterer.create!(name: Faker::Restaurant.name, address: Faker::Address.full_address, cuisine: cuisines.sample,
                            description: Faker::Restaurant.description, price_per_hour: 60, user: marie)
 caterers = [caterer1, caterer2]
 20.times do
@@ -29,7 +29,7 @@ caterers = [caterer1, caterer2]
   users << user1
 
   puts "Creating caterers..."
-  caterer = Caterer.create!(address: Faker::Address.full_address, cuisine: cuisines.sample,
+  caterer = Caterer.create!(name: Faker::Restaurant.name, address: Faker::Address.full_address, cuisine: cuisines.sample,
                             description: Faker::Restaurant.description, price_per_hour: 50, user: user1)
 
   caterers << caterer
