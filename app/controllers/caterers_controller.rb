@@ -1,4 +1,6 @@
 class CaterersController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
+
   def index
     @caterers = Caterer.all
   end
@@ -14,6 +16,7 @@ class CaterersController < ApplicationController
   def create
     @caterer = Caterer.new(caterer_params)
     @caterer.user = current_user
+
     if @caterer.save
       redirect_to caterers_path
     else
@@ -24,6 +27,6 @@ class CaterersController < ApplicationController
   private
 
   def caterer_params
-    params.require(:caterer).permit(:description, :address, :cuisine, :price_per_hour)
+    params.require(:caterer).permit(:description, :address, :cuisine, :price_per_hour, :photo)
   end
 end
