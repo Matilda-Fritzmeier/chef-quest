@@ -9,11 +9,11 @@
         <%= link_to caterer_path(caterer), class: 'text-decoration-none' do %>
           <div class="card-trip mb-3">
             <%= cl_image_tag caterer.photo.key, height: 300, width: 400, crop: :fill %>
-            <%= caterer.user.first_name %>
+            <%= caterer.name %>
 
             <div>
-              <p><%= caterer.description[0..65] %></p>
-              <h2> <%= caterer.price_per_hour %></h2>
+              <p><%= caterer.cuisine%></p>
+              <h2> <%= caterer.price_per_hour %>€ per hour</h2>
             </div>
 
           </div>
