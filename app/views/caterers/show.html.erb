@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="body">
+    <h1>YOUR PERFEKT CATERER</h1>
+    <h2><%= @caterer.user.first_name %> <%= @caterer.user.last_name %></h2>
+    <div class="details">
+      <p><strong>Cuisine</strong> : <%= @caterer.cuisine %></p>
+      <p><strong>description</strong> : <%= @caterer.description %></p>
+      <p><strong>Address</strong> : <%= @caterer.address %></p>
+      <p><strong>Price per hour</strong> : <%= @caterer.price_per_hour %>€</p>
+    </div>
+    <p><a class="btn btn-flat" href="#">Book now</a></p>
+  </div>
+</div>
