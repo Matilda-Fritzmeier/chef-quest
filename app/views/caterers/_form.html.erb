@@ -1,0 +1,7 @@
+<%= simple_form_for(caterer) do |f| %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :price_per_hour %>
+  <%= f.input :cuisine , collection: Caterer::CUISINES%>
+  <%= f.submit "Create a Chef", class: "btn-flat"%>
+<% end %>
