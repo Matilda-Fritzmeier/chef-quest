@@ -8,16 +8,16 @@
 <div class="cards container">
   <div class="row">
     <div class="col">
-      <a href="<%=new_user_session_path%>">
+      <a href="#">
         <div class="card-entry">
           <%= image_tag "chef-removebg-preview.png" %>
           <div class="card-entry-infos">
             <div>
               <% if user_signed_in? %>
-                <%= link_to "I'm a chef!", new_user_session_path %>
-                <p> Let us help you find an event to cater!</p>
+                <%= link_to "I'm a chef!", "#" %>
+                <p> Register as chef!</p>
               <% else %>
-                <%= link_to "I'm a chef!", new_user_session_path %>
+                <%= link_to "I'm a chef!", "#" %>
                 <p> Login/ Register with us!</p>
               <% end %>
             </div>
@@ -27,12 +27,12 @@
     </div>
 
     <div class="col">
-      <a href="<%=caterers_path%>">
+      <a href="#">
         <div class="card-entry">
           <%= image_tag "cater-removebg-preview.png" %>
           <div class="card-entry-infos">
             <div>
-              <%= link_to "I'm planning an event!", caterers_path %>
+              <%= link_to "I'm planning an event!", "#" %>
               <p> Let us help you find a caterer!</p>
             </div>
           </div>
