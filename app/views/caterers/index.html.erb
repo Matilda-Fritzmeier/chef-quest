@@ -1,16 +1,24 @@
 <div class="container">
   <h1 class="caterers-title">LIST OF ALL THE CATERERS AVAILABLE</h1>
   <div class='row' id='caterer-cards'>
+
     <% @caterers.each do |caterer| %>
+
 
       <div class='col-4'>
         <%= link_to caterer_path(caterer), class: 'text-decoration-none' do %>
-          <div class="card mb-3">
+          <div class="card-trip mb-3">
+            <%= cl_image_tag caterer.photo.key, height: 300, width: 400, crop: :fill %>
             <%= caterer.user.first_name %>
+
+            <div>
+              <p><%= caterer.description[0..65] %></p>
+              <h2> <%= caterer.price_per_hour %></h2>
+            </div>
+
           </div>
         <% end %>
       </div>
-
     <% end %>
 
 
