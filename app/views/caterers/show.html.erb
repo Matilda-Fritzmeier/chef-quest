@@ -1,13 +1,20 @@
-<div class="container">
-  <div class="body">
-    <h1>YOUR PERFEKT CATERER</h1>
-    <h2><%= @caterer.user.first_name %> <%= @caterer.user.last_name %></h2>
-    <div class="details">
-      <p><strong>Cuisine</strong> : <%= @caterer.cuisine %></p>
-      <p><strong>description</strong> : <%= @caterer.description %></p>
-      <p><strong>Address</strong> : <%= @caterer.address %></p>
-      <p><strong>Price per hour</strong> : <%= @caterer.price_per_hour %>€</p>
+<div class="container" id='caterer'>
+  <h1><%=@caterer.name.upcase %></h1>
+  <div class="caterer-position">
+    <div class="caterer-details">
+      <h2><%= @caterer.user.first_name %> <%= @caterer.user.last_name %></h2>
+        <div class="caterer-txt">
+          <p><strong>Cuisine</strong> : <%= @caterer.cuisine %></p>
+          <p><strong>description</strong> : <%= @caterer.description %></p>
+          <p><strong>Address</strong> : <%= @caterer.address %></p>
+          <p><strong>Price per hour</strong> : <%= @caterer.price_per_hour %>€</p>
+        </div>
     </div>
-    <p><a class="btn btn-flat" href="#">Book now</a></p>
+
+        <div>
+          <%= cl_image_tag @caterer.photo.key, height: 400, width: 500, crop: :fill, class:"caterer-img" %>
+        </div>
+
   </div>
+  <p><%= link_to  "Book now", new_caterer_booking_path(@caterer), class:"btn btn-flat"%></p>
 </div>
