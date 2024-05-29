@@ -1,6 +1,7 @@
 .banner {
   background-image: asset_url("catering.jpg");
   background-size: cover;
+  max-height: 350px;
   background-position: center;
   padding: 150px 0;
 }
@@ -11,6 +12,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 52px;
   font-weight: bold;
+  font-family: $headers-font;
 }
 
 .banner p {
@@ -18,4 +20,5 @@
   color: $cream;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: $body-font;
 }

@@ -13,8 +13,13 @@
           <%= image_tag "chef-removebg-preview.png" %>
           <div class="card-entry-infos">
             <div>
-              <%= link_to "I'm a chef!", new_user_session_path %>
-              <p> Let us help you find an event to cater!</p>
+              <% if user_signed_in? %>
+                <%= link_to "I'm a chef!", new_user_session_path %>
+                <p> Let us help you find an event to cater!</p>
+              <% else %>
+                <%= link_to "I'm a chef!", new_user_session_path %>
+                <p> Login/ Register with us!</p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -22,12 +27,12 @@
     </div>
 
     <div class="col">
-      <a href="#">
+      <a href="<%=caterers_path%>">
         <div class="card-entry">
           <%= image_tag "cater-removebg-preview.png" %>
           <div class="card-entry-infos">
             <div>
-              <%= link_to "I'm planning an event!", "#" %>
+              <%= link_to "I'm planning an event!", caterers_path %>
               <p> Let us help you find a caterer!</p>
             </div>
           </div>
