@@ -18,14 +18,18 @@ pari = User.create!(email: "parikaya@mail.com", password: "password", first_name
 users = [any, marie, matilda, pari]
 
 puts "Creating caterers..."
+
 file1 = URI.open("https://www.google.com/search?q=food+caterer+image&sca_esv=99636c5107a06ae2&sca_upv=1&udm=2&biw=1536&bih=730&ei=EAhXZryeLv7bi-gPm_yu-QU&ved=0ahUKEwi85sb217KGAxX-7QIHHRu-K18Q4dUDCBA&uact=5&oq=food+caterer+image&gs_lp=Egxnd3Mtd2l6LXNlcnAiEmZvb2QgY2F0ZXJlciBpbWFnZUiPKVDQA1ivJ3ABeACQAQCYAZABoAHqCqoBBDE2LjK4AQPIAQD4AQGYAg2gAu8HwgIKEAAYgAQYQxiKBcICBRAAGIAEwgIGEAAYBRgewgIGEAAYCBgewgIEEAAYHsICBxAAGIAEGBjCAgkQABiABBgYGAqYAwCIBgGSBwQxMi4xoAfLSQ&sclient=gws-wiz-serp#vhid=96v1LpkxRrjcDM&vssid=mosaic")
 caterer1 = Caterer.create!(address: Faker::Address.full_address, cuisine: cuisines.sample, description: Faker::Restaurant.description,
                            price_per_hour: 50, user: any)
 caterer1.photo.attach(io: file1, filename: "image1.png", content_type: "image/png")
+
 file2 = URI.open("https://media.istockphoto.com/id/1056074028/photo/waiter-carrying-plates-with-meat-dish.jpg?s=612x612&w=0&k=20&c=KJ098Ql4Pf0uTGfiKKrdqB6PNdnh7JuUmJo1fYVvUxc=")
 caterer2 = Caterer.create!(address: Faker::Address.full_address, cuisine: cuisines.sample,
+
                            description: Faker::Restaurant.description, price_per_hour: 60, user: marie)
 caterer2.photo.attach(io: file2, filename: "image2.png", content_type: "image/png")
+
 caterers = [caterer1, caterer2]
 20.times do
   puts "Creating users..."
@@ -34,8 +38,10 @@ caterers = [caterer1, caterer2]
   users << user1
 
   puts "Creating caterers..."
+
   file = URI.open("https://foodtrends.com/wp-content/uploads/2023/06/menu-page-bg.jpg")
   caterer = Caterer.create!(address: Faker::Address.full_address, cuisine: cuisines.sample,
+
                             description: Faker::Restaurant.description, price_per_hour: 50, user: user1)
   caterer.photo.attach(io: file, filename: "#{caterer.name}-image.png", content_type: "image/png")
   caterers << caterer
