@@ -1,0 +1,12 @@
+<%= simple_form_for([caterer, booking]) do |f| %>
+  <%= f.input :date %>
+  <%= f.input :location %>
+  <%= f.input :start_hour,
+            as: :string,
+            input_html: { data: { controller: "timepicker" } } %>
+  <%= f.input :end_hour,
+            as: :string,
+            input_html: { data: { controller: "timepicker" } } %>
+  <%= f.input :guests_count %>
+  <%= f.submit "Create a booking", class: "btn-flat"%>
+<% end %>
