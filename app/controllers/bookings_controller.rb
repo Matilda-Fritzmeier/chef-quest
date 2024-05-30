@@ -14,7 +14,7 @@ before_action :authenticate_user!, only: [:new, :create]
     @booking = Booking.new(booking_params)
     @booking.caterer_id = params[:caterer_id]
     @booking.user_id = current_user.id
-    @booking.total_price = @booking.caterer.price_per_hour * (@booking.end_hour - @booking.start_hour) / 1.hour
+    # @booking.total_price = @booking.caterer.price_per_hour * (@booking.end_hour - @booking.start_hour) / 1.hour
 
     if @booking.save
       redirect_to root_path

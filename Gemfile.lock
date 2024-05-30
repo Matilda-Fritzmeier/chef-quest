@@ -113,6 +113,7 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+    csv (3.3.0)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -144,6 +145,9 @@ GEM
     ffi (1.16.3)
     font-awesome-sass (6.5.2)
       sassc (~> 2.0)
+    geocoder (1.8.3)
+      base64 (>= 0.1.0)
+      csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -167,6 +171,7 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mapkick-rb (0.1.5)
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
@@ -326,8 +331,10 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   faker
   font-awesome-sass (~> 6.1)
+  geocoder
   importmap-rails
   jbuilder
+  mapkick-rb
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.3)
