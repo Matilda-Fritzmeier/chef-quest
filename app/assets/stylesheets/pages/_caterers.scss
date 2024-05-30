@@ -71,6 +71,31 @@
   width: 40px;
 }
 
+.footer {
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  background-color: #6B705C;
+
+}
+
+.footer-links {
+  i {
+    font-size: 25px;
+    color: #464a3d;
+  }
+}
+
+.footer-links:hover  {
+  i {
+color:#464a3d;
+  }
+}
+
 .form-control {
   border-radius: 8px;
 }
@@ -86,4 +111,5 @@
   background-color: #464a37;
   border: 1px solid #464a37;
   color:#FFE8D6;
+
 }
