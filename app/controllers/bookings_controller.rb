@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
-before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
+    @received_bookings = current_user.caterers.map(&:bookings).flatten
   end
 
   def new
@@ -23,9 +24,26 @@ before_action :authenticate_user!, only: [:new, :create]
     end
   end
 
+  def accept
+    booking = Booking.find(params[:id])
+    booking.confirmed = true
+    booking.save
+  end
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.confirmed = !@booking.confirmed
+    @booking.save
+    redirect_to bookings_path
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:date, :location, :start_hour, :end_hour, :guests_count)
   end
+
+
+
+
+
 end
