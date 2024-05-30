@@ -13,6 +13,11 @@
 
 .nav-link {
   color: $cream;
+  transition: color 0.3s;
+
+  :hover {
+    color: $dark-olive-green;
+  }
 }
 
 .dropdown-item,

@@ -1,4 +1,37 @@
 .cards {
-  display : flex;
+  display: flex;
   justify-content: center;
+}
+
+.avatar_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    color: $olive-green;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: $dark-olive-green;
+  }
+}
+
+.card_user {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+
+  h2 {
+    color: $olive-green;
+  }
+}
+
+.btn-container {
+  display: flex;
 }

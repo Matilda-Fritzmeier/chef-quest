@@ -10,3 +10,24 @@
   background: #682a2a;
   color: white;
 }
+
+.btn-action {
+  padding: 16px 16px;
+  font-size: large;
+
+  .btn-check {
+    color: $green;
+
+    :hover {
+      color: $light-green;
+    }
+  }
+
+  .btn-cancel {
+    color: $red;
+
+    :hover {
+      color: $brown;
+    }
+  }
+}

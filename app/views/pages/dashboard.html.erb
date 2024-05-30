@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="card_user">
+    <div class="avatar_card">
+      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+      <a href="#">Edit photo</a>
+    </div>
+    <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+  </div>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          My bookings
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Caterer</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Location</th>
+                <th scope="col">Guests</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% current_user.bookings.each do |booking| %>
+                <tr>
+                  <th scope="row"><%= booking.caterer.name %></th>
+                  <td><%= booking.date.strftime('%d %b %Y') %></td>
+                  <td><%= booking.start_hour.strftime('%H:%M') %> - <%= booking.end_hour.strftime('%H:%M') %></td>
+                  <td><%= booking.location %></td>
+                  <td><%= booking.guests_count%></td>
+                  <td><%= booking.total_price.round(2).to_s.chomp('.0') %>€</td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <%= "Caterer Name" %>
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Caterer</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Location</th>
+                <th scope="col">Guests</th>
+                <th scope="col">Price</th>
+                <th scope="col">Confirm?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td>
+                  <div class="btn-container">
+                    <a class="btn-action btn-check" href="#"><i class="fa-solid fa-check"></i></a>
+                    <a class="btn-action  btn-cancel"href="#"><i class="fa-solid fa-x"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Mark</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>Thornton</td>
+                <td>Thornton</td>
+                <td>
+                  <a class="btn-action btn-check" href="#"><i class="fa-solid fa-check"></i></a>
+                  <a class="btn-action  btn-cancel"href="#"><i class="fa-solid fa-x"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td>Thornton</td>
+                <td>Thornton</td>
+                <td>Thornton</td>
+                <td>Thornton</td>
+                <td>
+                  <a class="btn-action btn-check" href="#"><i class="fa-solid fa-check"></i></a>
+                  <a class="btn-action btn-cancel"href="#"><i class="fa-solid fa-x"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
