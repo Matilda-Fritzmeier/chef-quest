@@ -2,7 +2,11 @@ class CaterersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
   def index
-    @caterers = Caterer.all
+    if params[:query].present?
+      @caterers = Caterer.search_by_cuisine_and_address_and_caterer_name(params[:query])
+    else
+      @caterers = Caterer.all
+    end
   end
 
   def show

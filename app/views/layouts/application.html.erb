@@ -3,7 +3,7 @@
   <head>
     <title>ChefQuest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= favicon_link_tag 'logo-icon.png' %>
+    <%= favicon_link_tag 'browser-tab-icon.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -13,5 +13,16 @@
   <body>
     <%= render "shared/navbar" %>
     <%= yield %>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
+
   </body>
 </html>
