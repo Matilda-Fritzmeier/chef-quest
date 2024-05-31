@@ -1,11 +1,10 @@
-
-<p><% @received_bookings.each do |booking| %>
+<% @received_bookings.each do |booking| %>
   <%= simple_form_for(booking, url: booking_path(booking), method: :patch) do |f| %>
     <%= f.submit(booking.confirmed ? 'Accepted' : 'Accept', class: "btn-flat") %>
   <% end %>
 
-  <%= simple_form_for(booking, url: booking_path(booking), method: :patch) do |f| %>
-    <%= f.submit(booking.confirmed ? 'Decline' : 'Decline', class: "btn-flat") %>
+  <% if !booking.confirmed %>
+    <%= link_to 'Decline', booking_path(booking), data: { "turbo-method": :delete } %>
   <% end %>
 
-<% end %></p>
+<% end %>

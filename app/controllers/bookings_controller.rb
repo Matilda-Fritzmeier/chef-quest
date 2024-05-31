@@ -24,15 +24,16 @@ class BookingsController < ApplicationController
     end
   end
 
-  def accept
-    booking = Booking.find(params[:id])
-    booking.confirmed = true
-    booking.save
-  end
   def update
     @booking = Booking.find(params[:id])
-    @booking.confirmed = !@booking.confirmed
+    @booking.confirmed = true
     @booking.save
+    redirect_to bookings_path
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
     redirect_to bookings_path
   end
 
@@ -41,9 +42,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:date, :location, :start_hour, :end_hour, :guests_count)
   end
-
-
-
-
 
 end
