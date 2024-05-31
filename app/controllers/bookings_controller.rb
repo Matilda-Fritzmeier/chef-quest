@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.total_price = @booking.caterer.price_per_hour * (@booking.end_hour - @booking.start_hour) / 1.hour
 
     if @booking.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
