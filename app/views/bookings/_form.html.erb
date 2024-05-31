@@ -1,4 +1,9 @@
-<%= simple_form_for([caterer, booking]) do |f| %>
+<%= simple_form_for([caterer, booking])
+# , data: {
+  # popup_target: "form",
+  # action: "submit->popup#fire"
+# }
+do |f| %>
   <%= f.input :date %>
   <%= f.input :location %>
   <%= f.input :start_hour,
