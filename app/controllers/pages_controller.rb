@@ -1,8 +1,12 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
+
   def home
   end
 
   def dashboard
+    @caterers = current_user.caterers
+
     @bookings = Booking.where(user: current_user)
     # @booking = Booking.find(params[:booking_id])
     # @booking = @bookings.last
@@ -15,7 +19,8 @@ class PagesController < ApplicationController
       caterers << @caterer unless caterers.include?(@caterer)
 
       @booking = booking
-      @distance = Geocoder::Calculations.distance_between([@booking.latitude, @booking.longitude], [@caterer.latitude, @caterer.longitude])
+      @distance = Geocoder::Calculations.distance_between([@booking.latitude, @booking.longitude],
+                                                          [@caterer.latitude, @caterer.longitude])
       data = {
         latitude: @booking.latitude,
         longitude: @booking.longitude,
@@ -27,12 +32,12 @@ class PagesController < ApplicationController
 
     caterers.each do |caterer|
       @data <<
-      {
-        latitude: caterer.latitude,
-        longitude: caterer.longitude,
-        label: "Caterer Location",
-        tooltip: "You"
-      }
+        {
+          latitude: caterer.latitude,
+          longitude: caterer.longitude,
+          label: "Caterer Location",
+          tooltip: "You"
+        }
     end
   end
 end

@@ -10,3 +10,25 @@
   background: #682a2a;
   color: white;
 }
+
+.btn-action {
+  padding: 4px 8px;
+  font-size: large;
+  display: block;
+}
+
+.btn-icon-check {
+  color: $green;
+
+  :hover {
+    color: $light-green;
+  }
+}
+
+.btn-icon-cancel {
+  color: $red;
+
+  :hover {
+    color: $brown;
+  }
+}

@@ -11,18 +11,24 @@ cuisines = ["French", "Italian", "Portuguese", "English"]
 puts "Creating users..."
 
 any = User.create!(email: "anyelle@mail.com", password: "password", first_name: "Anyelle", last_name: "Zanatta")
+# anyFile = URI.open("https://avatars.githubusercontent.com/u/11357820?s=400&u=1666b329c10d66870bbe0d27601151ee557c8a9e&v=4")
+# any.photo.attach(io: anyFile, filename: "anyelle.png", content_type: "image/png")
+
 marie = User.create!(email: "marie@mail.com", password: "password", first_name: "Marie", last_name: "Auer")
 matilda = User.create!(email: "matilda@mail.com", password: "password", first_name: "matilda", last_name: "hello")
+
 pari = User.create!(email: "parikaya@mail.com", password: "password", first_name: "parikaya", last_name: "nanda")
+# pariFile = URI.open("https://avatars.githubusercontent.com/u/166150062?s=400&u=bf92ac6d878719e89e490376532fc7d73a19b967&v=4")
+# pari.photo.attach(io: pariFile, filename: "parikaya.png", content_type: "image/png")
 
 users = [any, marie, matilda, pari]
-cities = ["Paris", "London", "Lisbon", "Rome", "Berlin", "Madrid", "Barcelona", "Amsterdam", "Brussels", "Vienna", "Barcelona", "Amsterdam", "Rotterdam", "Utrecht"]
+cities = ["Paris", "London", "Lisbon", "Rome", "Berlin", "Madrid", "Barcelona", "Amsterdam", "Brussels", "Vienna",
+          "Barcelona", "Amsterdam", "Rotterdam", "Utrecht"]
 
 puts "Creating caterers..."
 
-
 caterer1 = Caterer.create!(name: Faker::Restaurant.name, address: cities.sample, cuisine: cuisines.sample, description: Faker::Restaurant.description,
-  price_per_hour: 50, user: any)
+                           price_per_hour: 50, user: any)
 file1 = URI.open("https://source.unsplash.com/random/?#{caterer1.cuisine}+food")
 caterer1.photo.attach(io: file1, filename: "image1.png", content_type: "image/png")
 
@@ -37,20 +43,17 @@ caterers = [caterer1, caterer2]
 20.times do
   puts "Creating users..."
   user1 = User.create!(email: Faker::Internet.email, password: "password", first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name)
-    users << user1
+                       last_name: Faker::Name.last_name)
+  users << user1
 
-    puts "Creating caterers..."
-
+  puts "Creating caterers..."
 
   file = URI.open("https://source.unsplash.com/random/?#{caterer1.cuisine}+food")
   caterer = Caterer.create!(name: Faker::Restaurant.name, address: cities.sample, cuisine: cuisines.sample,
-
-
-#                             description: Faker::Restaurant.description, price_per_hour: 50, user: user1)
-#   caterer.photo.attach(io: file, filename: "#{caterer.name}-image.png", content_type: "image/png")
-#   caterers << caterer
-# end
+                            description: Faker::Restaurant.description, price_per_hour: 50, user: user1)
+  caterer.photo.attach(io: file, filename: "#{caterer.name}-image.png", content_type: "image/png")
+  caterers << caterer
+end
 
 puts "Creating bookings..."
 
