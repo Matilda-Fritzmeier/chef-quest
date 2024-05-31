@@ -20,6 +20,7 @@ cities = ["Paris", "London", "Lisbon", "Rome", "Berlin", "Madrid", "Barcelona", 
 
 puts "Creating caterers..."
 
+
 caterer1 = Caterer.create!(name: Faker::Restaurant.name, address: cities.sample, cuisine: cuisines.sample, description: Faker::Restaurant.description,
   price_per_hour: 50, user: any)
 file1 = URI.open("https://source.unsplash.com/random/?#{caterer1.cuisine}+food")
@@ -32,6 +33,7 @@ caterer2 = Caterer.create!(name: Faker::Restaurant.name, address: cities.sample,
 caterer2.photo.attach(io: file2, filename: "image2.png", content_type: "image/png")
 
 caterers = [caterer1, caterer2]
+
 20.times do
   puts "Creating users..."
   user1 = User.create!(email: Faker::Internet.email, password: "password", first_name: Faker::Name.first_name,
@@ -44,10 +46,11 @@ caterers = [caterer1, caterer2]
   file = URI.open("https://source.unsplash.com/random/?#{caterer1.cuisine}+food")
   caterer = Caterer.create!(name: Faker::Restaurant.name, address: cities.sample, cuisine: cuisines.sample,
 
-                            description: Faker::Restaurant.description, price_per_hour: 50, user: user1)
-  caterer.photo.attach(io: file, filename: "#{caterer.name}-image.png", content_type: "image/png")
-  caterers << caterer
-end
+
+#                             description: Faker::Restaurant.description, price_per_hour: 50, user: user1)
+#   caterer.photo.attach(io: file, filename: "#{caterer.name}-image.png", content_type: "image/png")
+#   caterers << caterer
+# end
 
 puts "Creating bookings..."
 
