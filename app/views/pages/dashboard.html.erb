@@ -1,92 +1,103 @@
 <div class="container">
   <div class="card_user">
     <div class="avatar_card">
-      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+      <%= image_tag "avatar.png", class:"avatar-large"  %>
       <a href="#">Edit photo</a>
     </div>
     <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
   </div>
-  <div class="accordion" data-controller="accordion" data-accordion-target="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          My bookings
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Caterer</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Location</th>
-                <th scope="col">Guests</th>
-                <th scope="col">Price</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% current_user.bookings.each do |booking| %>
-                <tr>
-                  <th scope="row"><%= booking.caterer.name %></th>
-                  <td><%= booking.date.strftime('%d %b %Y') %></td>
-                  <td><%= booking.start_hour.strftime('%H:%M') %> - <%= booking.end_hour.strftime('%H:%M') %></td>
-                  <td><%= booking.location %></td>
-                  <td><%= booking.guests_count%></td>
-                  <td><%= booking.total_price.round(2).to_s.chomp('.0') %>€</td>
-                  <td><%= booking.confirmed ? "Confirmed" : "Pending" %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <% @caterers.each do |caterer|%>
+  <div class="container-accordion">
+    <div class="accordion" data-controller="accordion" data-accordion-target="accordion" id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=caterer.name.gsub(" ","")%>" aria-expanded="false" aria-controls="collapse<%=caterer.name.gsub(" ","")%>">
-            <%= caterer.name %>
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            My events
           </button>
         </h2>
-        <div id="collapse<%=caterer.name.gsub(" ","")%>" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Client</th>
+                  <th scope="col">Caterer</th>
                   <th scope="col">Date</th>
                   <th scope="col">Time</th>
                   <th scope="col">Location</th>
                   <th scope="col">Guests</th>
                   <th scope="col">Price</th>
-                  <th scope="col">Confirm?</th>
+                  <th scope="col">Status</th>
                 </tr>
               </thead>
               <tbody>
-                <% caterer.bookings.each do |booking|%>
+                <% current_user.bookings.each do |booking| %>
                   <tr>
-                    <th scope="row"><%= booking.user.first_name %> <%= booking.user.last_name %></th>
+                    <th scope="row"><%= booking.caterer.name %></th>
                     <td><%= booking.date.strftime('%d %b %Y') %></td>
                     <td><%= booking.start_hour.strftime('%H:%M') %> - <%= booking.end_hour.strftime('%H:%M') %></td>
                     <td><%= booking.location %></td>
                     <td><%= booking.guests_count%></td>
                     <td><%= booking.total_price.round(2).to_s.chomp('.0') %>€</td>
-                    <td>
-                      <div class="btn-container">
-                        <a class="btn-action btn-icon-check" href="#"><i class="fa-solid fa-check"></i></a>
-                        <a class="btn-action  btn-icon-cancel "href="#"><i class="fa-solid fa-x"></i></a>
-                      </div>
-                    </td>
+                    <td><%= booking.confirmed ? "Confirmed" : "Pending" %></td>
                   </tr>
-                <%end %>
+                <% end %>
               </tbody>
             </table>
+            <%= render "map"%>
           </div>
         </div>
       </div>
-    <%end%>
+      <% @caterers.each do |caterer|%>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=caterer.name.gsub(" ","")%>" aria-expanded="false" aria-controls="collapse<%=caterer.name.gsub(" ","")%>">
+              Bookings for <%= caterer.name %>
+            </button>
+          </h2>
+          <div id="collapse<%=caterer.name.gsub(" ","")%>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Client</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Guests</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Confirm?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% caterer.bookings.each do |booking|%>
+                    <tr>
+                      <th scope="row"><%= booking.user.first_name %> <%= booking.user.last_name %></th>
+                      <td><%= booking.date.strftime('%d %b %Y') %></td>
+                      <td><%= booking.start_hour.strftime('%H:%M') %> - <%= booking.end_hour.strftime('%H:%M') %></td>
+                      <td><%= booking.location %></td>
+                      <td><%= booking.guests_count%></td>
+                      <td><%= booking.total_price.round(2).to_s.chomp('.0') %>€</td>
+                      <td>
+                        <div class="btn-container">
+                          <% if booking.confirmed %>
+                            <%= "Accepted" %>
+                          <% else %>
+                            <%= link_to booking_path(booking), data: { "turbo-method": :patch }, class: "btn-action btn-icon-check " do %>
+                              <i class="fa-solid fa-check"></i>
+                            <% end %>
+                            <%= link_to booking_path(booking), data: { "turbo-method": :delete }, class: "btn-action btn-icon-cancel " do %>
+                              <i class="fa-solid fa-x"></i>
+                            <%end%>
+                          <% end %>
+                        </div>
+                      </td>
+                    </tr>
+                  <%end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
   </div>
 </div>

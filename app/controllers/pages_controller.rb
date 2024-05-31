@@ -1,9 +1,11 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
+
   def home
   end
 
   def dashboard
-    @caterers = Booking.where(user_id: current_user.id).map(&:caterer)
+    @caterers = current_user.caterers
 
     @bookings = Booking.where(user: current_user)
     # @booking = Booking.find(params[:booking_id])
