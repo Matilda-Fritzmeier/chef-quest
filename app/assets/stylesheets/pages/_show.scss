@@ -44,9 +44,40 @@ margin-right: 40px;
   width: 250px;
   height: 45px;
   margin-top: 20px;
+  background-color: #45483b;
 }
 
 .btn-flat:hover {
-  background: #682a2a;
+  background: $olive-green;
   color: white;
+}
+
+.btn-back {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $olive-green;
+  transition: background 0.3s ease;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.arrow {
+  color: $olive-green;
+  font-size: 36px;
+  margin-top: 30px;
+}
+
+.btn-back:hover {
+  background:#45483b;
+  color: white;
+}
+
+.bi-currency-dollar {
+  font-weight: bold;
+}
+
+.caterer-position {
+  justify-content: space-between;
+  align-items: center;
 }
