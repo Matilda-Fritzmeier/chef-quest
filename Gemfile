@@ -80,3 +80,4 @@ gem 'faker'
 gem "cloudinary", "2.0.2"
 gem "geocoder"
 gem "mapkick-rb"
+gem "pg_search"

@@ -1,26 +1,38 @@
-<div class="container">
+<div class="container" id='caterer-cards'>
   <h1 class="caterers-title">LIST OF ALL THE CATERERS AVAILABLE</h1>
-  <div class='row' id='caterer-cards'>
 
-    <% @caterers.each do |caterer| %>
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: caterers_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
+    <div class='row ms-5 me-5 ps-5 pe-5'>
 
-      <div class='col-4'>
-        <%= link_to caterer_path(caterer), class: 'text-decoration-none' do %>
-          <div class="card-trip mb-3">
-            <%= cl_image_tag caterer.photo.key, height: 300, width: 400, crop: :fill %>
-            <%= caterer.name %>
+      <% @caterers.each do |caterer| %>
 
-            <div>
-              <p><%= caterer.cuisine%></p>
-              <h2> <%= caterer.price_per_hour %>€ per hour</h2>
+        <div class='col-4'>
+          <%= link_to caterer_path(caterer), class: 'text-decoration-none' do %>
+            <div class="card-trip mb-3">
+              <%= cl_image_tag caterer.photo.key, height: 300, width: 400, crop: :fill %>
+              <%= caterer.name %>
+
+              <div>
+                <p><%= caterer.cuisine%></p>
+                <h2> <%= caterer.price_per_hour %>€ per hour</h2>
+              </div>
             </div>
 
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+          <% end %>
 
-
+        </div>
+      <% end %>
   </div>
 </div>
