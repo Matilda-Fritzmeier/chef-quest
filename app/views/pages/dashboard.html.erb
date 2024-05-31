@@ -6,7 +6,7 @@
     </div>
     <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
   </div>
-  <div class="accordion" id="accordionExample">
+  <div class="accordion" data-controller="accordion" data-accordion-target="accordion" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -24,6 +24,7 @@
                 <th scope="col">Location</th>
                 <th scope="col">Guests</th>
                 <th scope="col">Price</th>
+                <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@
                   <td><%= booking.location %></td>
                   <td><%= booking.guests_count%></td>
                   <td><%= booking.total_price.round(2).to_s.chomp('.0') %>€</td>
+                  <td><%= booking.confirmed ? "Confirmed" : "Pending" %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -42,69 +44,49 @@
         </div>
       </div>
     </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <%= "Caterer Name" %>
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Caterer</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Location</th>
-                <th scope="col">Guests</th>
-                <th scope="col">Price</th>
-                <th scope="col">Confirm?</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>
-                  <div class="btn-container">
-                    <a class="btn-action btn-check" href="#"><i class="fa-solid fa-check"></i></a>
-                    <a class="btn-action  btn-cancel"href="#"><i class="fa-solid fa-x"></i></a>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Thornton</td>
-                <td>Thornton</td>
-                <td>
-                  <a class="btn-action btn-check" href="#"><i class="fa-solid fa-check"></i></a>
-                  <a class="btn-action  btn-cancel"href="#"><i class="fa-solid fa-x"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td>Thornton</td>
-                <td>Thornton</td>
-                <td>Thornton</td>
-                <td>Thornton</td>
-                <td>
-                  <a class="btn-action btn-check" href="#"><i class="fa-solid fa-check"></i></a>
-                  <a class="btn-action btn-cancel"href="#"><i class="fa-solid fa-x"></i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <% @caterers.each do |caterer|%>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=caterer.name.gsub(" ","")%>" aria-expanded="false" aria-controls="collapse<%=caterer.name.gsub(" ","")%>">
+            <%= caterer.name %>
+          </button>
+        </h2>
+        <div id="#collapse<%=caterer.name.gsub(" ","")%>" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Client</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Guests</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Confirm?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% caterer.bookings.each do |booking|%>
+                  <tr>
+                    <th scope="row"><%= booking.user.first_name %> <%= booking.user.last_name %></th>
+                    <td><%= booking.date.strftime('%d %b %Y') %></td>
+                    <td><%= booking.start_hour.strftime('%H:%M') %> - <%= booking.end_hour.strftime('%H:%M') %></td>
+                    <td><%= booking.location %></td>
+                    <td><%= booking.guests_count%></td>
+                    <td><%= booking.total_price.round(2).to_s.chomp('.0') %>€</td>
+                    <td>
+                      <div class="btn-container">
+                        <a class="btn-action btn-icon-check" href="#"><i class="fa-solid fa-check"></i></a>
+                        <a class="btn-action  btn-icon-cancel "href="#"><i class="fa-solid fa-x"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                <%end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    <%end%>
   </div>
 </div>

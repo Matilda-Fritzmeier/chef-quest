@@ -12,22 +12,23 @@
 }
 
 .btn-action {
-  padding: 16px 16px;
+  padding: 4px 8px;
   font-size: large;
+  display: block;
+}
 
-  .btn-check {
-    color: $green;
+.btn-icon-check {
+  color: $green;
 
-    :hover {
-      color: $light-green;
-    }
+  :hover {
+    color: $light-green;
   }
+}
 
-  .btn-cancel {
-    color: $red;
+.btn-icon-cancel {
+  color: $red;
 
-    :hover {
-      color: $brown;
-    }
+  :hover {
+    color: $brown;
   }
 }
