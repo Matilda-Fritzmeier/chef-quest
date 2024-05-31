@@ -1,5 +1,7 @@
 <%= simple_form_for([caterer, booking]) do |f| %>
-  <%= f.input :date %>
+  <%= f.input :date,
+              as: :string,
+              input_html: { data: { controller: "datepicker"}} %>
   <%= f.input :location %>
   <%= f.input :start_hour,
             as: :string,
