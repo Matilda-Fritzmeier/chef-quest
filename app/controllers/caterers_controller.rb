@@ -27,6 +27,6 @@ class CaterersController < ApplicationController
   private
 
   def caterer_params
-    params.require(:caterer).permit(:description, :address, :cuisine, :price_per_hour, :photo)
+    params.require(:caterer).permit(:name, :description, :address, :cuisine, :price_per_hour, :photo)
   end
 end
